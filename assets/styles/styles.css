@@ -44,7 +44,9 @@ header {
 /*Search bar/form styling*/
 
 .form {
-
+    display: flex;
+    justify-content: center;
+    
 }
 
 /* main stlying, including jumbotron  */
