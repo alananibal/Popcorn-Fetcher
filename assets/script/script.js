@@ -1,6 +1,6 @@
 var movieValue = document.getElementById("movie-genre");
 var submitBtn = document.getElementById("submit")
-
+var moviesContainer = document.getElementById("moviesContainer")
 // OMDB
 // Here is your key: a82e041
 
@@ -45,6 +45,19 @@ var getData = function (movie) {
         
             response.json().then(function (data) {
             console.log(data)
+
+            for (var i = 0; i < data.length; i++) {
+                //Creating a h3 element and a p element
+                var movieName = document.createElement('li');
+                       
+                //Setting the text of the h3 element and p element.
+                movieName.textContent = data[i].movie;
+                    
+                //Appending the dynamically generated html to the div associated with the id= movies"
+                //Append will attach the element as the bottom most child.
+                moviesContainer.append(movieName);
+                
+              }
     
             
         });
