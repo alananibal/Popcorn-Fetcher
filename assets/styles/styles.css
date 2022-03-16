@@ -95,7 +95,11 @@ main ul li {
 }
 
 
-
+/*Styling for white space to match color beneath header, just for some symmetry*/
+.white-space {
+    background-color:white;
+    padding:60px 60px;
+}
 
 /*Footer stlying begins here */ 
 
