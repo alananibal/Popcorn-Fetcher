@@ -62,6 +62,24 @@ main {
     
     
 }
+.movie-information-wrapper {
+    background-color: #4e0032;
+    opacity: .89;
+}
+
+.aside {
+    background-color: #4e0032;
+    opacity: .89;
+    background-size: 50px 50px;
+}
+
+.saved-search {
+    background-color: #4e0032;
+    opacity: .89;
+    color:white;
+    
+}
+
 main h2 {
     text-decoration: underline overline;
     
@@ -76,9 +94,6 @@ main ul li {
 
 }
 
-.saved-search {
-    color:black;
-}
 
 
 
