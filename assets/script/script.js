@@ -39,43 +39,31 @@ var getData = function (movie) {
 // "movie" is a parameter that you name it 
    
     var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie';
-    console.log(omdbUrl)
+        console.log(omdbUrl)
   
         fetch(omdbUrl).then(function (response) {
         
             response.json().then(function (data) {
             console.log(data)
-    
-            
-        });
+            });
     });
 
 
 // Giphy fetching
-
     var giphyUrl = 'https://api.giphy.com/v1/gifs/search?q=' + movie + '&api_key=E1Nyp3nLmOcDCuxWhDaoGASokkuweu2T&limit=10';
         console.log(giphyUrl)
-    
         fetch(giphyUrl).then(function (response) {
         
             response.json().then(function (data) {
             console.log(data)
-    
             
+                
             });
         
         });
-
-    
-
 };
-
-
-  
-
   // var submitButton = document.getElementById("submit");
-  // submitButton.addEventListener();
-  
+  // submitButton.addEventListener();  
     submitBtn.addEventListener("click",function(e){
     e.preventDefault();
     getData(movieValue.value);
