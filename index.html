@@ -4,33 +4,49 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Popcorn-Fetcher</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/styles/styles.css">
 </head>
 <body>
-    <form>
+    <!--Header/Navigation starts here -->
+    <header class="header">
+        <h1>Popcorn-Fetcher</h1>
+
+        <nav class="navigation">
+            <ul><li><a href="#">Home</a></li></ul>
+            <ul><li><a href="#">About Us</a></li></ul>
+            <ul><li><a href="#">Start Searching</a></li></ul>
+            <ul><li><a href="#">Contact Us</a></li></ul>
+        </nav>
+    </header>
+    <form class="form">
         <input type="text" id="movie-genre">    
-        <button id="submit">submit</button>
+        <button id="submit" class="btn">submit</button>
     </form>
     <main>
-        <h1>Movies list</h1>
+        
+        <div class="movie-information-wrapper">
+        <h2>Movies list</h2>
         <div><ul>
             <!-- append movies list -->
             <li>
-                <div>
-                    <h2>Movie Tittle</h2>
-                    <h3>IMBD LINK</h3>
-                    <button>Save</button>
+                <div class="appended-movie-list">
+                    <h3>Movie Tittle</h3>
+                    <h4>IMBD LINK</h4>
+                    <button class="save-btn">Save</button>
                 </div>
             </li>
         </ul></div>
+    </div>
     </main>
     <!-- gifs display -->
-    <aside>
+    <aside class="aside">
         <div>1st gif</div>
 
     </aside>
     <!-- saved seach  -->
-    <div>
+    <div class="saved-search">
         <li>
             <div>
                 <h2>Movie Tittle</h2>
@@ -41,6 +57,16 @@
         </li>
 
     </div>
+
+    <!--Footer Begins Here -->
+    <footer>
+        <h3 id="contact-me">Contact Us</h3>
+        <div >
+          <a href="tel:+1(111)1111111"> Tel: +1(111) 111 1111</a>
+          <a href="mailto:info@popcornfetcher.com">Email: info@Popcorn-Fetcher.com</a>
+        </div>
+      </footer>
+    </footer>
 
 
     <script src="./assets/script/script.js"></script>
