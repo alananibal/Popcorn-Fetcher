@@ -1,6 +1,3 @@
-var movieValue = document.getElementById("movie-genre");
-var submitBtn = document.getElementById("submit")
-var moviesContainer = document.getElementById("moviesContainer")
 // OMDB
 // Here is your key: a82e041
 
@@ -33,6 +30,10 @@ var moviesContainer = document.getElementById("moviesContainer")
 // tS4VGqUbD4
 // http://api.fandango.com/<version>?op=<operation>&<parameter list>&apikey=<apikey>&sig=<sig>
 
+var movieValue = document.getElementById("movie-genre");
+var submitBtn = document.getElementById("submit")
+var moviesContainer = document.getElementById("moviesContainer")
+
 
 // OMBD Fetching
 var getData = function (movie) {
@@ -41,27 +42,30 @@ var getData = function (movie) {
     var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie';
     console.log(omdbUrl)
   
-        fetch(omdbUrl).then(function (response) {
-        
-            response.json().then(function (data) {
+        fetch(omdbUrl)
+            .then(function (response) {
+            // Convert Json into an object
+            return response.json();
+            })
+            .then(function (data) {
             console.log(data)
-
-            for (var i = 0; i < data.length; i++) {
+            // Display inHTML here
+            var docArray = data.response.poster;
+            for (var i = 0; i < docArray.length; i++) {
                 //Creating a h3 element and a p element
-                var movieName = document.createElement('li');
-                       
+                var lisItem = document.createElement('li');
                 //Setting the text of the h3 element and p element.
-                movieName.textContent = data[i].movie;
-                    
+                lisItem.textContent = data[i].poster;
                 //Appending the dynamically generated html to the div associated with the id= movies"
                 //Append will attach the element as the bottom most child.
-                moviesContainer.append(movieName);
-                
-              }
-    
-            
-        });
-    });
+                moviesContainer.appendChild(lisItem);
+            }
+               
+            })
+            .catch(function(error){
+            console.log(error)
+            });
+
 
 
 // Giphy fetching
@@ -92,7 +96,7 @@ var getData = function (movie) {
     submitBtn.addEventListener("click",function(e){
     e.preventDefault();
     getData(movieValue.value);
-});
+    });
   
   
   
