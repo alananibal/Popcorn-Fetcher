@@ -80,6 +80,7 @@ main {
     border: white solid 1px;
     opacity: .89;
     color:white;
+    list-style: none;
     
 }
 
@@ -117,13 +118,17 @@ footer {
 
 /* Tablet screens and smaller*/
 @media screen and (max-width: 768px) {
-
+    .navigation {
+        flex-direction: column;
+        flex: 1 100%;
+    }
+    
 }
 
 
 /* Mobile phones and smaller */
 @media screen and (max-width: 575px) {
-    .navigation{
+    .navigation {
         flex-direction: column;
         flex: 1 100%;
     }
