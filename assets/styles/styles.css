@@ -64,17 +64,20 @@ main {
 }
 .movie-information-wrapper {
     background-color: #4e0032;
+    border: white solid 1px;
     opacity: .89;
 }
 
 .aside {
     background-color: #4e0032;
+    border: white solid 1px;
     opacity: .89;
     background-size: 50px 50px;
 }
 
 .saved-search {
     background-color: #4e0032;
+    border: white solid 1px;
     opacity: .89;
     color:white;
     
@@ -120,6 +123,11 @@ footer {
 
 /* Mobile phones and smaller */
 @media screen and (max-width: 575px) {
+    .navigation{
+        flex-direction: column;
+        flex: 1 100%;
+    }
+    
     footer {
         flex-direction: column;
         gap: 1rem;
