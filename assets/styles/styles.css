@@ -89,10 +89,6 @@ main ul li {
     list-style: none;
 }
 
-/* Save button styling */
-.save-btn{
-
-}
 
 
 /*Styling for white space to match color beneath header, just for some symmetry*/
@@ -113,3 +109,11 @@ footer {
     color:white;
     
 }
+
+/* Mobile Responsiveness/ media quereries begin here*/
+@media screen and (max-width: 575px) {
+    
+}
+/* Tablet screens and smaller*/
+
+/* Mobile phones and smaller */
