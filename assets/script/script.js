@@ -34,6 +34,19 @@ var movieValue = document.getElementById("movie-genre");
 var submitBtn = document.getElementById("submit")
 var moviesContainer = document.getElementById("moviesContainer")
 
+var displayGifs = function (gdata) {
+    for (var i = 0; i < gdata.data.length; i++) {
+        console.log(gdata.data[i].embed_url);
+    }
+};
+
+
+function displayMovies(data) {
+    for (var i = 0; i < data.Search.length; i++) {
+        console.log(data.Search[i].Title);
+        console.log(data.Search[i].Poster);
+    }
+}
 
 // OMBD Fetching
 var getData = function (movie) {
@@ -42,56 +55,27 @@ var getData = function (movie) {
     var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie';
     console.log(omdbUrl)
   
-        fetch(omdbUrl)
-            .then(function (response) {
-            // Convert Json into an object
-            return response.json();
-            })
-            .then(function (data) {
-            console.log(data)
-            // Display inHTML here
-            var docArray = data.response.poster;
-            for (var i = 0; i < docArray.length; i++) {
-                //Creating a h3 element and a p element
-                var lisItem = document.createElement('li');
-                //Setting the text of the h3 element and p element.
-                lisItem.textContent = data[i].poster;
-                //Appending the dynamically generated html to the div associated with the id= movies"
-                //Append will attach the element as the bottom most child.
-                moviesContainer.appendChild(lisItem);
-            }
-               
-            })
-            .catch(function(error){
-            console.log(error)
-            });
-
-
-
-// Giphy fetching
-
-    var giphyUrl = 'https://api.giphy.com/v1/gifs/search?q=' + movie + '&api_key=E1Nyp3nLmOcDCuxWhDaoGASokkuweu2T&limit=10';
-        console.log(giphyUrl)
-    
-        fetch(giphyUrl).then(function (response) {
+    fetch(omdbUrl).then(function (response) {
         
-            response.json().then(function (data) {
-            console.log(data)
-    
-            
-            });
-        
+        response.json().then(function (data) {
+        console.log(data)
+        displayMovies(data);  // What do I put here... 
         });
+    });
+// Giphy fetching
+    var giphyUrl = 'https://api.giphy.com/v1/gifs/search?q=' + movie + '&api_key=E1Nyp3nLmOcDCuxWhDaoGASokkuweu2T&limit=10';
+    console.log(giphyUrl)
 
-    
-
+    fetch(giphyUrl).then(function (response) {
+        response.json().then(function (data) {
+        console.log(data)
+        displayGifs(data)
+        });
+    });
 };
 
-
-  
-
-  // var submitButton = document.getElementById("submit");
-  // submitButton.addEventListener();
+// var submitButton = document.getElementById("submit");
+// submitButton.addEventListener();
   
     submitBtn.addEventListener("click",function(e){
     e.preventDefault();
