@@ -111,9 +111,17 @@ footer {
 }
 
 /* Mobile Responsiveness/ media quereries begin here*/
-@media screen and (max-width: 575px) {
-    
-}
+
 /* Tablet screens and smaller*/
+@media screen and (max-width: 768px) {
+
+}
+
 
 /* Mobile phones and smaller */
+@media screen and (max-width: 575px) {
+    footer {
+        flex-direction: column;
+        gap: 1rem;
+    }
+}
