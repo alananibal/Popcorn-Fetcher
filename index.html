@@ -4,18 +4,100 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Popcorn-Fetcher</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/foundation-sites@6.7.4/dist/css/foundation-float.min.css"  crossorigin="anonymous">
+    <link rel="stylesheet" href="./assets/styles/styles.css">
 </head>
 <body>
-    <form>
-        <input type="text" id="movie-genre">    
-        <button id="submit">submit</button>
-    </form>
+
+    <!--Header/Navigation starts here -->
+    <header class="header">
+        <h1>Popcorn-Fetcher</h1>
+
+        <nav class="navigation">
+            <ul><li><a href="./index.html">Home</a></li></ul> 
+            <ul><li><a href="#search-bar">Start Searching</a></li></ul>
+            <ul><li><a href="#footer">Contact Us</a></li></ul>
+        </nav>
+    </header>
+    
+    <form class="form" id="search-bar">
+        <div class="row">
+            <div class="small-8">
+                <div class="row">
+                    <div class="small-3 columns">
+                        <label for="movie-genre" class="right inline">Search Movies and GIFS Here</label>
+                        </div>
+       <div class="small-9 columns">                
+        <input type="text" id="movie-genre" placeholder="movie title/keyword/actor/etc">
+            
+        <a href="#" class="button">Submit</a>
+        </div>
+        </div>
+    </div>
+</div>
+</form>
     <main>
-       <div id="moviesContainer"></div>
-       <div></div>
+        
+        <div class="row gutter-medium large-up-3 medium-up-2 small-up-1">
+            <div class="small-2 large-4 columns">
+                <div class="movie-information-wrapper">
+                <h2>Movies list</h2>
+                <div><ul>
+                    <!-- append movies list -->
+                    <li>
+                        <div class="appended-movie-list">
+                            <h3>Movie Tittle</h3>
+                            <h4>IMBD LINK</h4>
+                            <a href="#" class="button">Save</a>
+                        </div>
+                    </li>
+                </ul></div>
+            </div></div>
+            <div class="small-4 large-4 columns">
+                <!-- gifs display -->
+    <aside class="aside">
+        <div><h2>1st gif </h2></div>
+        <div><h3>Will Be Displayed </h3></div>
+        <div><h3>Here</h3></div>
+        <div><h3>2nd Gif</h3></div>
+    </aside>
+            </div>
+            <div class="small-6 large-4 columns">
+              <!-- saved seach  -->
+    <div class="saved-search">
+        <li>
+            <div>
+                <h2>Movie Tittle</h2>
+                <h3>IMBD LINK</h3>
+                <div>Saved Gif</div>
+                <a href="#" class="button">Delete</a>
+            </div>
+        </li>
+
+    </div>  
+            </div>
+          </div>
+        
     </main>
     
+    <div class="white-space">
+
+    </div>
+    
+    
+
+    <!--Footer Begins Here -->
+    <footer id="footer">
+        <h3 id="contact-me">Contact Us</h3>
+        <div >
+          <a href="tel:+1(111)1111111"> Tel: +1(111) 111 1111</a>
+          <a href="mailto:info@popcornfetcher.com">Email: info@Popcorn-Fetcher.com</a>
+        </div>
+      </footer>
+    </footer>
+
+
 
     <script src="./assets/script/script.js"></script>
 </body>

@@ -97,9 +97,11 @@ var getData = function (movie) {
 // ombd 
     // var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie&plot';
     // console.log(omdbUrl)
+
   
     // fetch(omdbUrl).then(function (response) {
         
+
     //     response.json().then(function (data) {
     //     console.log(data)
     //     displayMovies(data);  
@@ -114,6 +116,7 @@ var getData = function (movie) {
         console.log(data)
         displayGifs(data);
         });
+
     });
 
 // Upcoming movies fetching
@@ -133,6 +136,7 @@ var getData = function (movie) {
 // var submitButton = document.getElementById("submit");
 // submitButton.addEventListener();
   
+
     submitBtn.addEventListener("click",function(e){
     e.preventDefault();
     getData(movieValue.value);
