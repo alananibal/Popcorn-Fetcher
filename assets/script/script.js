@@ -16,37 +16,51 @@
 // 
 // 
 // ----------------------------------------------------------------------------------------------------
-// Fandango Application Registration
-// Application Registered!
-// Your API keys are:
+// IMDB
+// Key
+// In theatres
+// URL: https://imdb-api.com/en/API/InTheaters/k_57knyc4o
+// Coming sooon
+// URL https://imdb-api.com/en/API/ComingSoon/k_57knyc4o
 
-// Discovery API: production
-// Key: 2nd2982pfmmuzbswvubfe2pk
-// Application
-// Critic Menu
-// Key:
-// 2nd2982pfmmuzbswvubfe2pk
-// Secret:
-// tS4VGqUbD4
-// http://api.fandango.com/<version>?op=<operation>&<parameter list>&apikey=<apikey>&sig=<sig>
+
 
 var movieValue = document.getElementById("movie-genre");
 var submitBtn = document.getElementById("submit")
 var moviesContainer = document.getElementById("moviesContainer")
 
-var displayGifs = function (gdata) {
-    for (var i = 0; i < gdata.data.length; i++) {
-        console.log(gdata.data[i].embed_url);
+
+
+var displayGifs = function (content) {
+    for (var i = 0; i < content.data.length; i++) {
+        console.log(content.data[i].images.downsized.url);
+        
+        // var gifAddress = content.data[i].embed_url;
+        var gifItem = document.createElement("img");
+       
+        gifItem.src = content.data[i].images.downsized.url;
+        moviesContainer.appendChild(gifItem);
     }
 };
 
-
-function displayMovies(data) {
+var displayMovies = function (data) {
     for (var i = 0; i < data.Search.length; i++) {
         console.log(data.Search[i].Title);
         console.log(data.Search[i].Poster);
+
+        // Title
+        var movieTitle = data.Search[i].Title;
+        var titleEl =  document.createElement("h1");
+        titleEl.textContent = movieTitle;
+        moviesContainer.appendChild(titleEl);
+        // Poster
+        var moviePoster = data.Search[i].Poster;
+        var posterEl = document.createElement("img");
+        posterEl.setAttribute("src", moviePoster);
+        moviesContainer.appendChild(posterEl);
+        
     }
-}
+};
 
 // OMBD Fetching
 var getData = function (movie) {
@@ -59,7 +73,7 @@ var getData = function (movie) {
         
         response.json().then(function (data) {
         console.log(data)
-        displayMovies(data);  // What do I put here... 
+        displayMovies(data);  
         });
     });
 // Giphy fetching
@@ -69,9 +83,22 @@ var getData = function (movie) {
     fetch(giphyUrl).then(function (response) {
         response.json().then(function (data) {
         console.log(data)
-        displayGifs(data)
+        displayGifs(data);
         });
     });
+
+// IMDB fetching
+    // var comingSoonUrl = 'https://imdb-api.com/en/API/ComingSoon/k_57knyc4o'
+    // console.log(comingSoonUrl);
+
+    // fetch(comingSoonUrl).then(function(response){
+    //     response.json().then(function(data){
+    //         console.log(data);
+
+    //     });
+    // });
+
+
 };
 
 // var submitButton = document.getElementById("submit");
