@@ -165,7 +165,7 @@ var getData = function (movie) {
         response.json().then(function (data) {
         console.log(data)
         displayGifs(data);
-        localStorage.setItem("gif", JSON.stringify(displayGifs(data)));
+        
         });
     });
 };
