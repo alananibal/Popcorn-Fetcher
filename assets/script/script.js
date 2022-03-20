@@ -69,6 +69,7 @@ var displayMovies = function (data) {
         // Title
          var movieTitle = data.results[i].title;
          var titleEl =  document.createElement("h3");
+         titleEl.setAttribute("style", "font-weight: bold");
         titleEl.textContent = movieTitle;
         
         // Poster
@@ -76,7 +77,7 @@ var displayMovies = function (data) {
         var posterEl = document.createElement("img");
         var posterLinkEl = document.createElement("a");
         posterEl.setAttribute("src", moviePoster);
-        posterEl.setAttribute("style", "width:10%; height:10%");
+        posterEl.setAttribute("style", "width:40%; height:40%; border: 1px solid white");
         posterLinkEl.setAttribute("href", "https://www.imdb.com/title/" + movieId);
         posterLinkEl.appendChild(posterEl);
 
