@@ -28,7 +28,7 @@ var submitBtn = document.getElementById("submit")
 var moviesContainer = document.getElementById("moviesContainer");
 // where we are app gifs
 var gifsContainer = document.getElementById("gifsContainer");
-
+var saveBtn = document.getElementById("save-btn");
 
 
 var displayGifs = function (content) {
@@ -159,3 +159,9 @@ var getData = function (movie) {
     //         console.log(data);
     //     });
     // });
+
+    // save gif and movie fetch to localStorage
+
+    if (saveBtn.addEventListener("click", function() {
+
+    }
