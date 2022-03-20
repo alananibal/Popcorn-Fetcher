@@ -46,10 +46,8 @@ var displayGifs = function (content) {
 };
 var displayMovies = function (data) {
     moviesContainer.innerHTML = "";
-    
      
-    
-    for (var i = 0; i < 10; i++) {
+    for (var i = 0; i < 6; i++) {
         // console.log(data.results[i]);
         // console.log(data.results[i].title);
         // console.log(data.results[i].image);
