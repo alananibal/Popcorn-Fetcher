@@ -177,7 +177,10 @@ var getData = function (movie) {
 // save button eventlistener
  var save = saveBtn.addEventListener("click",function() {
     console.log("clicked");
+    localStorage.setItem("Data", JSON.stringify(movieValue.value));
+    console.log (localStorage);
  })
+ 
 // ombd
     // var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie&plot';
     // console.log(omdbUrl)
