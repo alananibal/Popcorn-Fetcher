@@ -60,7 +60,7 @@ var displayMovies = function (data) {
 
         // Movie Wrapper Card
         var movieCard = document.createElement("div");
-        movieCard.setAttribute("class", "Julian-Styling")
+        movieCard.setAttribute("class", "Julian-Styling");
         
         moviesContainer.appendChild(movieCard);
                 

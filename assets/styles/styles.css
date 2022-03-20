@@ -120,7 +120,16 @@ footer {
     
 
 }
+ 
 
+   .Julian-Styling {
+    background-color: #4e0032;
+    opacity: .89;
+    font: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /* Mobile Responsiveness/ media quereries begin here*/
 
 /* Tablet screens and smaller*/
