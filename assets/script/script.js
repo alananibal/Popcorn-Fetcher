@@ -37,7 +37,7 @@ var displayGifs = function (content) {
         console.log(content.data[i].images.downsized.url);
         
         var gifCardEL = document.createElement("div");
-        gifCardEL.setAttribute("class", "jacob-styling");
+        gifCardEL.setAttribute("class", "gif-card-element");
         var gifItem = document.createElement("img");
         gifItem.src = content.data[i].images.downsized.url;
         gifCardEL.appendChild(gifItem);
@@ -62,6 +62,7 @@ var displayMovies = function (data) {
         
              // Movie Wrapper Card
         var movieCard = document.createElement("a");
+        // movie-card-element
         movieCard.setAttribute("style", "border: 3px solid black");
         
 
