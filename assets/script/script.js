@@ -28,7 +28,9 @@ var submitBtn = document.getElementById("submit")
 var moviesContainer = document.getElementById("moviesContainer");
 // where we are app gifs
 var gifsContainer = document.getElementById("gifsContainer");
-
+var saveBtn = document.getElementById("save-btn");
+// saved content, empty object
+var savedContent = {}
 
 
 var displayGifs = function (content) {
@@ -172,8 +174,10 @@ var getData = function (movie) {
     e.preventDefault();
     getData(movieValue.value);
     });
-
-
+// save button eventlistener
+ var save = saveBtn.addEventListener("click",function() {
+    console.log("clicked");
+ })
 // ombd
     // var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie&plot';
     // console.log(omdbUrl)
