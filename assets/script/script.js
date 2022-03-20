@@ -61,7 +61,7 @@ var displayMovies = function (data) {
             var movieId = data.results[i].id;
         
              // Movie Wrapper Card
-        var movieCard = document.createElement("a");
+        var movieCard = document.createElement("div");
         // movie-card-element
         movieCard.setAttribute("style", "border: 3px solid black");
         
