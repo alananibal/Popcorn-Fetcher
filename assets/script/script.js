@@ -185,7 +185,8 @@ var getData = function (movie) {
  var load = function() {
      var parsedData = JSON.parse(localStorage.getItem("Data"));
      if (parsedData != null){
-        savedContentContainer.innerText = parsedData;
+        savedContentContainer.innerText = "Most Recent Search" + ":" + "  " + parsedData;
+        savedContentContainer.setAttribute("style", "border: 3px solid black; font-weight: bold; background-color: #4e0032; width: 200px; height:200px;");
      }
  }
 // ombd
