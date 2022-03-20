@@ -79,7 +79,7 @@ var displayMovies = function (data) {
         var posterEl = document.createElement("img");
         var posterLinkEl = document.createElement("a");
         posterEl.setAttribute("src", moviePoster);
-        posterEl.setAttribute("style", "width:40%; height:40%; border: 1px solid white");
+        posterEl.setAttribute("style", "width:40%; height:40%; border: 1px solid white; display:flex; justify-content: center;");
         posterLinkEl.setAttribute("href", "https://www.imdb.com/title/" + movieId);
         posterLinkEl.appendChild(posterEl);
 
@@ -185,7 +185,7 @@ var getData = function (movie) {
  var load = function() {
      var parsedData = JSON.parse(localStorage.getItem("Data"));
      if (parsedData != null){
-        savedContentContainer.innerText = "Most Recent Search" + ":" + "  " + parsedData;
+        savedContentContainer.innerText = "Your Previous Search" + ":" + "  " + parsedData;
         savedContentContainer.setAttribute("style", "border: 3px solid white; font-weight: bold; background-color: #4e0032; width: 200px; height:200px;");
      }
  }
