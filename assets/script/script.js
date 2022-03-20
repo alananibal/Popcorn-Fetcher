@@ -82,17 +82,17 @@ var displayMovies = function (data) {
 
          // plot
         var moviePlot = data.results[i].plot;
-        var plotEl = document.createElement("h2");
+        var plotEl = document.createElement("p");
         plotEl.textContent = "Plot: " + moviePlot;
 
         // Stars
         var movieStars = data.results[i].stars;
-        var starsEl = document.createElement("h2")
+        var starsEl = document.createElement("p")
         starsEl.textContent = "Stars: " + movieStars;
 
         // Genres
         var movieGenre = data.results[i].genres;
-        var genreEl = document.createElement("h1");
+        var genreEl = document.createElement("p");
         genreEl.textContent = "Genre: " + movieGenre;
 
 
