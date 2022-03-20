@@ -19,7 +19,7 @@
 // Advanced search
 // URL https://imdb-api.com/API/AdvancedSearch/k_57knyc4o?title=
 // 
-// https://www.imdb.com/title/
+// "https://www.imdb.com/title/" + 
 
 
 var movieValue = document.getElementById("movie-genre");
@@ -50,46 +50,75 @@ var displayMovies = function (data) {
      
     
     for (var i = 0; i < 10; i++) {
-        console.log(data.results[i]);
-        console.log(data.results[i].title);
-        console.log(data.results[i].image);
-        console.log(data.results[i].plot);
-        console.log(data.results[i].imDbRating);
-        console.log(data.results[i].stars);
-        console.log(data.results[i].genres);
-
-        // Movie Wrapper Card
-        var movieCard = document.createElement("div");
-        movieCard.setAttribute("class", "Julian-Styling")
+        // console.log(data.results[i]);
+        // console.log(data.results[i].title);
+        // console.log(data.results[i].image);
+        // console.log(data.results[i].plot);
+        // console.log(data.results[i].imDbRating);
+        // console.log(data.results[i].stars);
+        // console.log(data.results[i].genres);
+        // console.log(data.results[i].id)
+        if(data.results.length > 0 ){
+            // IMBD movie Id
+            var movieId = data.results[i].id;
         
+             // Movie Wrapper Card
+        var movieCard = document.createElement("a");
+        movieCard.setAttribute("style", "border: 3px solid black");
+        
+
+        // Title
+         var movieTitle = data.results[i].title;
+         var titleEl =  document.createElement("h3");
+        titleEl.textContent = movieTitle;
+        
+        // Poster
+        var moviePoster = data.results[i].image;
+        var posterEl = document.createElement("img");
+        var posterLinkEl = document.createElement("a");
+        posterEl.setAttribute("src", moviePoster);
+        posterEl.setAttribute("style", "width:10%; height:10%");
+        posterLinkEl.setAttribute("href", "https://www.imdb.com/title/" + movieId);
+        posterLinkEl.appendChild(posterEl);
+
+         // plot
+        var moviePlot = data.results[i].plot;
+        var plotEl = document.createElement("h2");
+        plotEl.textContent = "Plot: " + moviePlot;
+
+        // Stars
+        var movieStars = data.results[i].stars;
+        var starsEl = document.createElement("h2")
+        starsEl.textContent = "Stars: " + movieStars;
+
+        // Genres
+        var movieGenre = data.results[i].genres;
+        var genreEl = document.createElement("h1");
+        genreEl.textContent = "Genre: " + movieGenre;
+
+
+        movieCard.appendChild(titleEl);
+        movieCard.appendChild(posterLinkEl);
+        movieCard.appendChild(plotEl);
+        movieCard.appendChild(starsEl);
+        movieCard.appendChild(genreEl);
         moviesContainer.appendChild(movieCard);
                 
-        // Title
-        var movieTitle = data.results[i].title;
-        var titleEl =  document.createElement("h3");
-        titleEl.textContent = "hello";
-        movieCard.appendChild(movieTitle);
+
+
+        }
+       
+          
         
-        // // Poster
-        // var moviePoster = data.results[i].image;
-        // var posterEl = document.createElement("img");
-        // posterEl.setAttribute("src", moviePoster);
-        // posterEl.setAttribute("style", "width:10%; height:10%");
         
-        // // plot
-        // var moviePlot = data.results[i].plot;
-        // var plotEl = document.createElement("h2");
-        // plotEl.textContent = "Plot: " + moviePlot;
+       
         
-        // // Stars
-        // var movieStars = data.results[i].stars;
-        // var starsEl = document.createElement("h2")
-        // starsEl.textContent = "Stars: " + movieStars;
         
-        // // Genres
-        // var movieGenre = data.results[i].genres;
-        // var genreEl = document.createElement("h1");
-        // genreEl.textContent = "Genre: " + movieGenre;
+        
+        
+
+        
+
 
           // movieCard.setAttribute("");
     
@@ -114,12 +143,13 @@ var getData = function (movie) {
         response.json().then(function(data){
             console.log(data);
             // Expand this logic to create something else
-            if(data.results === null ){
+            if(data.results.length === 0 ){
                 console.log("error");
                 alert("error");
 
             } else { 
             displayMovies(data);
+            
             }
            
         });
@@ -142,6 +172,8 @@ var getData = function (movie) {
     e.preventDefault();
     getData(movieValue.value);
     });
+
+
 // ombd
     // var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie&plot';
     // console.log(omdbUrl)
