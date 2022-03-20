@@ -65,7 +65,7 @@ var displayMovies = function (data) {
              // Movie Wrapper Card
         var movieCard = document.createElement("div");
         // movie-card-element
-        movieCard.setAttribute("style", "border: 3px solid black");
+        movieCard.setAttribute("style", "border: 3px solid black; ");
         
 
         // Title
@@ -86,16 +86,20 @@ var displayMovies = function (data) {
          // plot
         var moviePlot = data.results[i].plot;
         var plotEl = document.createElement("p");
+        plotEl.setAttribute("style", "border: 1px solid white; background-color: black");
+        
         plotEl.textContent = "Plot: " + moviePlot;
 
         // Stars
         var movieStars = data.results[i].stars;
         var starsEl = document.createElement("p")
+        starsEl.setAttribute("style", "font-weight: bold; border: 1px solid white; background-color: black;");
         starsEl.textContent = "Stars: " + movieStars;
 
         // Genres
         var movieGenre = data.results[i].genres;
         var genreEl = document.createElement("p");
+        genreEl.setAttribute("style", "background-color: black; border: 1px solid white;");
         genreEl.textContent = "Genre: " + movieGenre;
 
 
