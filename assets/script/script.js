@@ -30,7 +30,7 @@ var moviesContainer = document.getElementById("moviesContainer");
 var gifsContainer = document.getElementById("gifsContainer");
 var saveBtn = document.getElementById("save-btn");
 // saved content, empty object
-var savedContent = {}
+var savedContentContainer = document.getElementById("saved-search");
 
 
 var displayGifs = function (content) {
@@ -138,7 +138,7 @@ var displayMovies = function (data) {
 // Movies Fetching
 var getData = function (movie) {
 // "movie" is a parameter that you name it
-    var imbdUrl = 'https://imdb-api.com/API/AdvancedSearch/k_57knyc4o?title=' + movie + '&title_type=feature';
+    var imbdUrl = 'https://imdb-api.com/API/AdvancedSearch/k_q3jzuved?title=' + movie + '&title_type=feature';
     console.log(imbdUrl);
     fetch(imbdUrl).then(function (response){
         // 
@@ -165,6 +165,7 @@ var getData = function (movie) {
         response.json().then(function (data) {
         console.log(data)
         displayGifs(data);
+        localStorage.setItem("gif", JSON.stringify(displayGifs(data)));
         });
     });
 };
@@ -178,9 +179,15 @@ var getData = function (movie) {
  var save = saveBtn.addEventListener("click",function() {
     console.log("clicked");
     localStorage.setItem("Data", JSON.stringify(movieValue.value));
+   
     console.log (localStorage);
  })
- 
+ var load = function() {
+     var parsedData = JSON.parse(localStorage.getItem("Data"));
+     if (parsedData != null){
+        savedContentContainer.innerText = parsedData;
+     }
+ }
 // ombd
     // var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie&plot';
     // console.log(omdbUrl)
@@ -198,3 +205,4 @@ var getData = function (movie) {
     //         console.log(data);
     //     });
     // });
+    load();
