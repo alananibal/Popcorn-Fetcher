@@ -28,7 +28,11 @@ var submitBtn = document.getElementById("submit")
 var moviesContainer = document.getElementById("moviesContainer");
 // where we are app gifs
 var gifsContainer = document.getElementById("gifsContainer");
-
+var saveBtn = document.getElementById("save-btn");
+// saved content, empty object
+var savedContentContainer = document.getElementById("saved-search");
+//delete btn
+var deleteBtn = document.getElementById("delete-btn");
 
 
 var displayGifs = function (content) {
@@ -37,7 +41,7 @@ var displayGifs = function (content) {
         console.log(content.data[i].images.downsized.url);
         
         var gifCardEL = document.createElement("div");
-        gifCardEL.setAttribute("class", "gif-card-element");
+        gifCardEL.setAttribute("class", "1px solid white; display:flex; justify-content: center;");
         var gifItem = document.createElement("img");
         gifItem.src = content.data[i].images.downsized.url;
         gifCardEL.appendChild(gifItem);
@@ -63,7 +67,7 @@ var displayMovies = function (data) {
              // Movie Wrapper Card
         var movieCard = document.createElement("div");
         // movie-card-element
-        movieCard.setAttribute("style", "border: 3px solid black");
+        movieCard.setAttribute("style", "border: 3px solid black; ");
         
 
         // Title
@@ -77,23 +81,27 @@ var displayMovies = function (data) {
         var posterEl = document.createElement("img");
         var posterLinkEl = document.createElement("a");
         posterEl.setAttribute("src", moviePoster);
-        posterEl.setAttribute("style", "width:40%; height:40%; border: 1px solid white");
+        posterEl.setAttribute("style", "width:40%; height:40%; border: 1px solid white; display:flex; justify-content: center;");
         posterLinkEl.setAttribute("href", "https://www.imdb.com/title/" + movieId);
         posterLinkEl.appendChild(posterEl);
 
          // plot
         var moviePlot = data.results[i].plot;
         var plotEl = document.createElement("p");
+        plotEl.setAttribute("style", "border: 1px solid white; background-color: black");
+        
         plotEl.textContent = "Plot: " + moviePlot;
 
         // Stars
         var movieStars = data.results[i].stars;
         var starsEl = document.createElement("p")
+        starsEl.setAttribute("style", "font-weight: bold; border: 1px solid white; background-color: black;");
         starsEl.textContent = "Stars: " + movieStars;
 
         // Genres
         var movieGenre = data.results[i].genres;
         var genreEl = document.createElement("p");
+        genreEl.setAttribute("style", "background-color: black; border: 1px solid white;");
         genreEl.textContent = "Genre: " + movieGenre;
 
 
@@ -136,7 +144,7 @@ var displayMovies = function (data) {
 // Movies Fetching
 var getData = function (movie) {
 // "movie" is a parameter that you name it
-    var imbdUrl = 'https://imdb-api.com/API/AdvancedSearch/k_57knyc4o?title=' + movie + '&title_type=feature';
+    var imbdUrl = 'https://imdb-api.com/API/AdvancedSearch/k_q3jzuved?title=' + movie + '&title_type=feature';
     console.log(imbdUrl);
     fetch(imbdUrl).then(function (response){
         // 
@@ -163,6 +171,7 @@ var getData = function (movie) {
         response.json().then(function (data) {
         console.log(data)
         displayGifs(data);
+        
         });
     });
 };
@@ -172,7 +181,23 @@ var getData = function (movie) {
     e.preventDefault();
     getData(movieValue.value);
     });
-
+// save button eventlistener
+ var save = saveBtn.addEventListener("click", function() {
+    console.log("clicked");
+    localStorage.setItem("Data", JSON.stringify(movieValue.value));
+    
+    console.log (localStorage);
+ })
+ var load = function() {
+     var parsedData = JSON.parse(localStorage.getItem("Data"));
+     
+     if (parsedData != null ){
+        savedContentContainer.innerText = "Your Saved Search" + ":" + "  " + parsedData;
+        savedContentContainer.setAttribute("style", "border: 3px solid white; font-weight: bold; background-color: #4e0032; width: 200px; height:200px;");
+        
+     }
+ }
+ 
 
 // ombd
     // var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie&plot';
@@ -191,3 +216,4 @@ var getData = function (movie) {
     //         console.log(data);
     //     });
     // });
+    load();
