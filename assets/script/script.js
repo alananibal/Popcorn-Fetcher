@@ -18,10 +18,8 @@
 // URL https://imdb-api.com/en/API/ComingSoon/k_57knyc4o
 // Advanced search
 // URL https://imdb-api.com/API/AdvancedSearch/k_57knyc4o?title=
-// 
-// "https://www.imdb.com/title/" + 
-
-
+//
+// "https://www.imdb.com/title/" +
 var movieValue = document.getElementById("movie-genre");
 var submitBtn = document.getElementById("submit")
 // where we are appending the movie Cards
@@ -33,15 +31,12 @@ var saveBtn = document.getElementById("save-btn");
 var savedContentContainer = document.getElementById("saved-search");
 //delete btn
 var deleteBtn = document.getElementById("delete-btn");
-
-
 var displayGifs = function (content) {
         gifsContainer.innerHTML = "";
     for (var i = 0; i < content.data.length; i++) {
         console.log(content.data[i].images.downsized.url);
-        
         var gifCardEL = document.createElement("div");
-        gifCardEL.setAttribute("class", "1px solid white; display:flex; justify-content: center;");
+        gifCardEL.setAttribute("class", "gif-card-element");
         var gifItem = document.createElement("img");
         gifItem.src = content.data[i].images.downsized.url;
         gifCardEL.appendChild(gifItem);
@@ -50,7 +45,6 @@ var displayGifs = function (content) {
 };
 var displayMovies = function (data) {
     moviesContainer.innerHTML = "";
-     
     for (var i = 0; i < 6; i++) {
         // console.log(data.results[i]);
         // console.log(data.results[i].title);
@@ -63,19 +57,15 @@ var displayMovies = function (data) {
         if(data.results.length > 0 ){
             // IMBD movie Id
             var movieId = data.results[i].id;
-        
              // Movie Wrapper Card
         var movieCard = document.createElement("div");
         // movie-card-element
         movieCard.setAttribute("style", "border: 3px solid black; ");
-        
-
         // Title
          var movieTitle = data.results[i].title;
          var titleEl =  document.createElement("h3");
          titleEl.setAttribute("style", "font-weight: bold");
         titleEl.textContent = movieTitle;
-        
         // Poster
         var moviePoster = data.results[i].image;
         var posterEl = document.createElement("img");
@@ -84,61 +74,34 @@ var displayMovies = function (data) {
         posterEl.setAttribute("style", "width:40%; height:40%; border: 1px solid white; display:flex; justify-content: center;");
         posterLinkEl.setAttribute("href", "https://www.imdb.com/title/" + movieId);
         posterLinkEl.appendChild(posterEl);
-
          // plot
         var moviePlot = data.results[i].plot;
         var plotEl = document.createElement("p");
         plotEl.setAttribute("style", "border: 1px solid white; background-color: black");
-        
         plotEl.textContent = "Plot: " + moviePlot;
-
         // Stars
         var movieStars = data.results[i].stars;
         var starsEl = document.createElement("p")
         starsEl.setAttribute("style", "font-weight: bold; border: 1px solid white; background-color: black;");
         starsEl.textContent = "Stars: " + movieStars;
-
         // Genres
         var movieGenre = data.results[i].genres;
         var genreEl = document.createElement("p");
         genreEl.setAttribute("style", "background-color: black; border: 1px solid white;");
         genreEl.textContent = "Genre: " + movieGenre;
-
-
         movieCard.appendChild(titleEl);
         movieCard.appendChild(posterLinkEl);
         movieCard.appendChild(plotEl);
         movieCard.appendChild(starsEl);
         movieCard.appendChild(genreEl);
         moviesContainer.appendChild(movieCard);
-                
-
-
         }
-       
-          
-        
-        
-       
-        
-        
-        
-        
-
-        
-
-
           // movieCard.setAttribute("");
-    
         //   movieCard.appendChild(moviePoster);
         //   movieCard.appendChild(moviePlot);
         //   movieCard.appendChild(movieStars);
         //   movieCard.appendChild(movieGenre);
-        
-        // 
-        
-        
-
+        //
     }
 };
 // Movies Fetching
@@ -147,22 +110,17 @@ var getData = function (movie) {
     var imbdUrl = 'https://imdb-api.com/API/AdvancedSearch/k_q3jzuved?title=' + movie + '&title_type=feature';
     console.log(imbdUrl);
     fetch(imbdUrl).then(function (response){
-        // 
+        //
         response.json().then(function(data){
             console.log(data);
             // Expand this logic to create something else
             if(data.results.length === 0 ){
                 console.log("error");
                 alert("error");
-
-            } else { 
+            } else {
             displayMovies(data);
-            
             }
-           
         });
-          
-    
     });
 // Giphy fetching
     var giphyUrl = 'https://api.giphy.com/v1/gifs/search?q=' + movie + '&api_key=E1Nyp3nLmOcDCuxWhDaoGASokkuweu2T&limit=5';
@@ -171,7 +129,6 @@ var getData = function (movie) {
         response.json().then(function (data) {
         console.log(data)
         displayGifs(data);
-        
         });
     });
 };
@@ -185,20 +142,15 @@ var getData = function (movie) {
  var save = saveBtn.addEventListener("click", function() {
     console.log("clicked");
     localStorage.setItem("Data", JSON.stringify(movieValue.value));
-    
     console.log (localStorage);
  })
  var load = function() {
      var parsedData = JSON.parse(localStorage.getItem("Data"));
-     
      if (parsedData != null ){
         savedContentContainer.innerText = "Your Saved Search" + ":" + "  " + parsedData;
-        savedContentContainer.setAttribute("style", "border: 3px solid white; font-weight: bold; background-color: #4e0032; width: 200px; height:200px;");
-        
+        savedContentContainer.setAttribute("style", "border: 3px solid white; font-weight: bold; background-color: #4E0032; width: 200px; height:200px;");
      }
  }
- 
-
 // ombd
     // var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie&plot';
     // console.log(omdbUrl)
