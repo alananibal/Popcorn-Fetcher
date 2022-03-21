@@ -185,7 +185,7 @@ var getData = function (movie) {
  var save = saveBtn.addEventListener("click", function() {
     console.log("clicked");
     localStorage.setItem("Data", JSON.stringify(movieValue));
-    localStorage.setItem("Data2", JSON.stringify(movieValue.data));
+    localStorage.setItem("Data2", JSON.stringify(movieValue.value));
     console.log (localStorage);
  })
  var load = function() {
