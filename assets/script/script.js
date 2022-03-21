@@ -115,30 +115,6 @@ var displayMovies = function (data) {
 
 
         }
-       
-          
-        
-        
-       
-        
-        
-        
-        
-
-        
-
-
-          // movieCard.setAttribute("");
-    
-        //   movieCard.appendChild(moviePoster);
-        //   movieCard.appendChild(moviePlot);
-        //   movieCard.appendChild(movieStars);
-        //   movieCard.appendChild(movieGenre);
-        
-        // 
-        
-        
-
     }
 };
 // Movies Fetching
@@ -175,8 +151,6 @@ var getData = function (movie) {
         });
     });
 };
-// var submitButton = document.getElementById("submit");
-// submitButton.addEventListener();
     submitBtn.addEventListener("click",function(e){
     e.preventDefault();
     getData(movieValue.value);
@@ -196,24 +170,5 @@ var getData = function (movie) {
         savedContentContainer.setAttribute("style", "border: 3px solid white; font-weight: bold; background-color: #4e0032; width: 200px; height:200px;");
         
      }
- }
- 
-
-// ombd
-    // var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie&plot';
-    // console.log(omdbUrl)
-    // fetch(omdbUrl).then(function (response) {
-    //     response.json().then(function (data) {
-    //     console.log(data)
-    //     displayMovies(data);
-    //     });
-    // });
-// Upcoming movies fetching
-    // var comingSoonUrl = 'https://imdb-api.com/en/API/ComingSoon/k_57knyc4o'
-    // console.log(comingSoonUrl);
-    // fetch(comingSoonUrl).then(function(response){
-    //     response.json().then(function(data){
-    //         console.log(data);
-    //     });
-    // });
+}
     load();
