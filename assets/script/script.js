@@ -184,23 +184,21 @@ var getData = function (movie) {
 // save button eventlistener
  var save = saveBtn.addEventListener("click", function() {
     console.log("clicked");
-    localStorage.setItem("Data", JSON.stringify(movieValue));
-    localStorage.setItem("Data2", JSON.stringify(movieValue.value));
+    localStorage.setItem("Data", JSON.stringify(movieValue.value));
+    
     console.log (localStorage);
  })
  var load = function() {
      var parsedData = JSON.parse(localStorage.getItem("Data"));
-     var parsedData2 = JSON.parse(localStorage.getItem("Data2"));
-     if (parsedData != null || parsedData2 != null){
-        savedContentContainer.innerText = "Your Saved Search" + ":" + "  " + parsedData + parsedData2;
+     
+     if (parsedData != null ){
+        savedContentContainer.innerText = "Your Saved Search" + ":" + "  " + parsedData;
         savedContentContainer.setAttribute("style", "border: 3px solid white; font-weight: bold; background-color: #4e0032; width: 200px; height:200px;");
         
      }
  }
- // delete button eventListener
- var deleteStore = deleteBtn.addEventListener("click", function() {
-     localStorage.removeItem("Data"); 
- })
+ 
+
 // ombd
     // var omdbUrl = 'http://www.omdbapi.com/?apikey=a82e041&s=' + movie + '&type=movie&plot';
     // console.log(omdbUrl)
