@@ -41,7 +41,7 @@ var displayGifs = function (content) {
         console.log(content.data[i].images.downsized.url);
         
         var gifCardEL = document.createElement("div");
-        gifCardEL.setAttribute("class", "gif-card-element");
+        gifCardEL.setAttribute("class", "1px solid white; display:flex; justify-content: center;");
         var gifItem = document.createElement("img");
         gifItem.src = content.data[i].images.downsized.url;
         gifCardEL.appendChild(gifItem);
